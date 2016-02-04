@@ -4,6 +4,7 @@ import java.util.Random;
 
 /**
  * Created by pooh on 02.02.2016.
+ *
  */
 public class Event {
     public int id = new Random().nextInt(100)+1;;

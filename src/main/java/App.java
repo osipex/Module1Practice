@@ -43,6 +43,9 @@ public class App {
         app.logEvent(EventType.ERROR, "Log item for user 1");
         app.logEvent(EventType.INFO, "Log item for user 1");
         app.logEvent(null, "Log item witout type for user 1");
+        app.logEvent(EventType.ERROR, "Everything broked! User 3 fucked up the system");
+        app.logEvent(EventType.INFO, "Log item for user 2");
+
 
         ctx.close();
 
