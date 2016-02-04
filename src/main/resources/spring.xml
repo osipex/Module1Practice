@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+ 		http://www.springframework.org/schema/beans
+ 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+
+    <!--importing all beans related to loggers-->
+    <import resource="loggers.xml"/>
+
+    <bean id="client"
+          class="Client">
+        <property name="greeting"
+                  value="Hello there!"/>
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="John Smith"/>
+    </bean>
+
+
+    <bean id="app"
+          class="App">
+        <constructor-arg index="0" ref="client"/>
+        <constructor-arg index="1" ref="consoleEventLogger"/>
+        <constructor-arg>
+            <map>
+                <entry key="INFO"
+                       value-ref="consoleEventLogger"/>
+                <entry key="ERROR"
+                       value-ref="combinedEventLogger"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+
+
+</beans>
